@@ -1,15 +1,21 @@
 {
-  "name": "workflows",
-  "version": "0.0.1",
-  "description": "A project to showcase workflows",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Tim O'Sullivan",
-  "license": "ISC",
-  "devDependencies": {
-    "gulp": "^4.0.2",
-    "gulp-util": "^3.0.8"
-  }
+    "name": "workflows",
+    "version": "0.0.1",
+    "description": "A project to showcase workflows",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/user1325253/workflows.git"
+
+    }
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Tim O'Sullivan",
+    "license": "ISC",
+    "devDependencies": {
+        "gulp": "^4.0.2",
+        "gulp-coffee": "^3.0.3",
+        "gulp-util": "^3.0.8"
+    }
 }
