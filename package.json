@@ -6,8 +6,7 @@
     "repository": {
         "type": "git",
         "url": "https://github.com/user1325253/workflows.git"
-
-    }
+    },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
@@ -16,6 +15,7 @@
     "devDependencies": {
         "gulp": "^4.0.2",
         "gulp-coffee": "^3.0.3",
+        "gulp-concat": "^2.6.1",
         "gulp-util": "^3.0.8"
     }
 }
