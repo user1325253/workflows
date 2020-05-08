@@ -14,8 +14,12 @@
     "license": "ISC",
     "devDependencies": {
         "gulp": "^4.0.2",
+        "gulp-browserify": "^0.5.1",
         "gulp-coffee": "^3.0.3",
         "gulp-concat": "^2.6.1",
-        "gulp-util": "^3.0.8"
+        "gulp-util": "^3.0.8",
+        "jquery": "^3.5.1",
+        "moustache": "0.0.4",
+        "mustache": "^4.0.1"
     }
 }
