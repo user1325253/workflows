@@ -5,8 +5,7 @@ var gulp = require('gulp'),
     compass = require('gulp-compass'),
     concat = require('gulp-concat');
 
-
-var coffeeSources = ['components/coffee/tagline.coffee'];
+var coffeeSources = ['components/coffee/*.coffee'];
 var jsSources = ['components/scripts/rclick.js',
 'components/scripts/pixgrid.js',
 'components/scripts/tagline.js',
@@ -24,14 +23,19 @@ gulp.task('coffee', async function () {
 
 });
 
-gulp.task('js', gulp.series(function (done) {
+
+gulp.task('js', gulp.series('coffee', async function () {
     gulp.src(jsSources)
         .pipe(concat('scripts.js'))
         .pipe(browserify())
         .pipe(gulp.dest('builds/development/js'))
-    done();
 }));
-
+gulp.task('js', ['coffee'], async function () {
+    gulp.src(jsSources)
+        .pipe(concat('scripts.js'))
+        .pipe(browserify())
+        .pipe(gulp.dest('builds/development/js'))
+});
 
 gulp.task('compass', async function () {
     gulp.src(sassSources)
@@ -47,27 +51,16 @@ gulp.task('compass', async function () {
 });
 
 
-
-gulp.task('watch', function () {
-    //GULP VERSION 3 only   gulp.watch(coffeeSources, ['coffee'])
-    gulp.watch('components/coffee/tagline.coffee', gulp.series('coffee'));
-    gulp.watch('components/scripts/rclick.js', gulp.series('js'));
-    gulp.watch('components/sass/*.scss', gulp.series('compass'));
-
-
-});
-
+//gulp.task('watch', function () {
+//    gulp.watch(coffeeSources, ['coffee'])
+//});
 
 gulp.task('default', gulp.series('coffee', 'js', 'compass'));
 
-
-
-
-
-
+//gulp.task('default', ['coffee', 'js', 'compass']);
 
 // create a default task and just log a message
 gulp.task('test', gulp.series(function (done) {
-
+    return gutil.log('Gulp is running!')
     done();
 }));
