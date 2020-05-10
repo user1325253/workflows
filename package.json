@@ -18,6 +18,7 @@
         "gulp-coffee": "^3.0.3",
         "gulp-compass": "^2.1.0",
         "gulp-concat": "^2.6.1",
+        "gulp-connect": "^5.7.0",
         "gulp-util": "^3.0.8",
         "jquery": "^3.5.1",
         "moustache": "0.0.4",
