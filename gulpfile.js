@@ -15,6 +15,8 @@ var jsSources = ['components/scripts/rclick.js',
 
 var sassSources = ['components/sass/style.scss'];
 
+var htmlSources = ['builds/development/*.html'];
+
 gulp.task('coffee', async function () {
     gulp.src(coffeeSources)
         .pipe(coffee({
@@ -56,6 +58,8 @@ gulp.task('watch', function () {
     gulp.watch('components/coffee/tagline.coffee', gulp.series('coffee'));
     gulp.watch('components/scripts/rclick.js', gulp.series('js'));
     gulp.watch('components/sass/*.scss', gulp.series('compass'));
+    gulp.watch(htmlSources, gulp.series('html'));
+    gulp.watch(htmlSources, gulp.series('json'));
 
 
 });
@@ -69,16 +73,30 @@ gulp.task('connect', function () {
 
 });
 
-gulp.task('default', gulp.series('coffee', 'js', 'compass', 'connenct', 'watch'))
+gulp.task('default', gulp.series('coffee', 'js', 'compass', 'connect', 'watch', 'html', 'json');
+
+
+        gulp.task('html'function () {
+                gulp.src(htmlSources)
+                    .pipe(connect.reload()
+
+
+                    });
+
+
+            gulp.task('json'function () {
+                    gulp.src('builds/development/js/*.json')
+                        .pipe(connect.reload()
+
+
+                        });
 
 
 
 
 
+                // create a default task and just log a message
+                gulp.task('test', gulp.series(function (done) {
 
-
-// create a default task and just log a message
-gulp.task('test', gulp.series(function (done) {
-
-    done();
-}));
+                    done();
+                }));
